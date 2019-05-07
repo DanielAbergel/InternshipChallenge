@@ -30,7 +30,7 @@ public class TEST_Input {
 				numOfBoxs = Integer.parseInt(inputs[1]);
 				numOfHunters = Integer.parseInt(inputs[2]);
 			}
-			System.out.println(CarpetLength + " << " + numOfBoxs + " << " + numOfHunters);
+			//System.out.println(CarpetLength + " << " + numOfBoxs + " << " + numOfHunters);
 			c.init(CarpetLength);
 			for(int i = 0 ; i < numOfBoxs ; i++)
 			{
@@ -56,7 +56,32 @@ public class TEST_Input {
 	
 	public static void main(String[] args) throws IOException {
 		TEST_Input T = new TEST_Input("task-1.txt") ;
-		
-		}
+	T.runTests();
+		Carpet c = new Carpet(3);
+		c.updateBox(0, 0);
+		c.updateBox(0, 1);
 
+		c.updateBox(0, 2);
+
+	//	c.updateBox(1, 0);
+
+		c.updateBox(1, 1);
+
+		c.updateBox(2, 1);
+
+		c.updateBox(2, 0);
+
+		c.updateBox(2, 2);
+
+		
+
+		
+		System.out.println(c.Algorithem());
+		}
+	/**
+	 *   , ,
+	 *  H,H,H
+	 *   ,B,
+	 * 
+	 */
 }

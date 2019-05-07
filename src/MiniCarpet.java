@@ -14,11 +14,7 @@ public class MiniCarpet {
 		
 	}
 	
-	/***
-	 * intgerr + 
-	 * @param other
-	 * @return
-	 */
+	
 	public int Mirror(MiniCarpet other) 	
 	{
 		int maxPotential = Math.min(this.potentialHunters, other.potentialHunters);

@@ -3,6 +3,7 @@ public class Cross {
 
 	Segment[] Segments ;
 	int length ; 
+	int middle ;
 
 	public Cross(int length) {
 		this.length = length ; 
@@ -11,15 +12,18 @@ public class Cross {
 		{
 			Segments[i] = new Segment(length/2);
 		}
+		middle = 1 ; 
 	}
 
 	public void updateHunter(int x , int y) 
 	{
+		if(x == length/2 && y == length/2) {middle--;return;}
 		int index = findIndex(x,y);
 		Segments[index].hunterCounter++ ; 
 	}
 	public void updateBox(int x , int y) 
 	{
+		if(x == length/2 && y == length/2) {middle--;return;}
 		int index = findIndex(x,y);
 		Segments[index].boxCounter++ ; 
 		Segments[index].potentialHunters--;
@@ -31,7 +35,7 @@ public class Cross {
 		if(x < length/2 && y ==  length/2) index = 1; 
 		else if(x == length/2 && y > length/2) index = 2 ;
 		else if(x > length/2 && y == length/2) index = 3; 
-
+		
 		return index ; 
 	}
 	public int CrossAlgorithem()
@@ -45,8 +49,8 @@ public class Cross {
 
 		OddSum = maxPotentialOdd-Segments[1].hunterCounter + maxPotentialOdd-Segments[3].hunterCounter;
 		EvenSum = maxPotentialEven-Segments[0].hunterCounter + maxPotentialEven-Segments[2].hunterCounter;
-
-		return OddSum + EvenSum; 
+		
+		return OddSum + EvenSum + middle; 
 	}
 	
 	public void init(int length) {
@@ -54,6 +58,7 @@ public class Cross {
 		for (int i = 0; i < Segments.length; i++) {
 			Segments[i].init(length/2);
 		}
+		middle = 1 ;
 
 	}	
 
@@ -94,7 +99,7 @@ public class Cross {
 		c.updateHunter(4, 0);
 		//		c.updateHunter(7, 4);
 		//		c.updateHunter(8, 4);
-		System.out.println(c.CrossAlgorithem());
+	
 
 	}
 

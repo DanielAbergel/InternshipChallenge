@@ -5,12 +5,12 @@ public class Carpet {
 	private MiniCarpet[] Carpets  = new MiniCarpet[4]; 
 	private Cross CrossEvenSoultion;
 	private int length ; 
-	boolean  EverOrOdd = true ; 
+	boolean  isEven = true ; 
 	
 	
 
-	public Carpet(int length  ) {
-		if(length % 2  == 1 ) EverOrOdd = false ;
+	public Carpet(int length ) {
+		if(length % 2  == 1 ) isEven = false ;
 		this.length = length ; 
 		for(int i = 0  ; i < 4 ; i++)
 			Carpets[i] = new MiniCarpet(length/2); 
@@ -18,24 +18,31 @@ public class Carpet {
 	}
 	public void init(int length) 
 	{
+		if(length % 2  == 1 ) isEven = false ;
+		else isEven = true ; 
 		this.length = length ; 
 		for(int i = 0  ; i < 4 ; i++)
 			Carpets[i].init(length/2); 
+		CrossEvenSoultion.init(length);
 	}
 
 	public void updateBox(int x , int y) {
 		int index = findIndex(x, y);
-		Carpets[index].addBox();
+		if( index < 4 ) Carpets[index].addBox(); 
+		else CrossEvenSoultion.updateBox(x, y);
 
 	}
 	public void updateHunter(int x , int y ) {
 		int index = findIndex(x, y);
-		Carpets[index].addHunter();
+		if( index < 4)Carpets[index].addHunter();
+		else CrossEvenSoultion.updateHunter(x, y);
 	}
+	
 	private int findIndex(int x , int y) {
 		int arrayIndex  = 0 ; 
-
-		if(x  < length/2 && y >= length/2 ) arrayIndex = 1 ; 
+		
+		if(!isEven && (x == length/2  || y == length/2)) arrayIndex = 4 ; 
+		else if(x  < length/2 && y >= length/2 ) arrayIndex = 1 ; 
 		else if(x  >= length/2 && y < length/2 ) arrayIndex = 2 ; 
 		else if(x  >= length/2 && y >= length/2 ) arrayIndex = 3 ; 
 
@@ -43,18 +50,20 @@ public class Carpet {
 	}
 	public int Algorithem() {
 		int ERROR = -1 ;  
-		int max = Carpets[0].Mirror(Carpets[3]) ;
-		if(max == ERROR ) return ERROR ; 
-		int max1 = Carpets[1].Mirror(Carpets[2]);
-		if(max1 == ERROR ) return ERROR ; 
-		return max1 + max;
+		int maxAns = Carpets[0].Mirror(Carpets[3]) ;
+		int maxAns1 = Carpets[1].Mirror(Carpets[2]);
+		int crossAns = 0; 
+		if(!isEven) crossAns =CrossEvenSoultion.CrossAlgorithem();
+		if(maxAns == ERROR || maxAns == ERROR  || crossAns == ERROR ) return ERROR ; 
+		return maxAns + maxAns1 + crossAns ;
 	}
 
 
 
 	public static void main(String[] args) {
-		
-		System.out.println(Integer.MAX_VALUE+5);
+		Carpet c = new Carpet(3);
+		c.updateBox(0, 0);
+		System.out.println(c.Algorithem());
 
 	}
 }
