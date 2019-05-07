@@ -55,28 +55,27 @@ public class TEST_Input {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		TEST_Input T = new TEST_Input("task-1.txt") ;
-	T.runTests();
-		Carpet c = new Carpet(3);
-		c.updateBox(0, 0);
-		c.updateBox(0, 1);
-
-		c.updateBox(0, 2);
-
-	//	c.updateBox(1, 0);
-
-		c.updateBox(1, 1);
-
-		c.updateBox(2, 1);
-
-		c.updateBox(2, 0);
-
-		c.updateBox(2, 2);
-
-		
-
-		
-		System.out.println(c.Algorithem());
+		TEST_Input T = new TEST_Input("task-2.txt") ;	T.runTests();
+//		Carpet c = new Carpet(3);
+//		c.updateBox(0, 0);
+//		c.updateBox(0, 1);
+//
+//		c.updateBox(0, 2);
+//
+//	//	c.updateBox(1, 0);
+//
+//		c.updateBox(1, 1);
+//
+//		c.updateBox(2, 1);
+//
+//		c.updateBox(2, 0);
+//
+//		c.updateBox(2, 2);
+//
+//		
+//
+//		
+//		System.out.println(c.Algorithem());
 		}
 	/**
 	 *   , ,
