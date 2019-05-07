@@ -10,10 +10,15 @@ public class MiniCarpet {
 		boxCounter = 0 ; 
 		hunterCounter = 0 ; 
 		potentialHunters = length*length ; 
-		this.length = length*length ; 
+		this.length = length*length; 
+		
 	}
 	
-	
+	/***
+	 * intgerr + 
+	 * @param other
+	 * @return
+	 */
 	public int Mirror(MiniCarpet other) 	
 	{
 		int maxPotential = Math.min(this.potentialHunters, other.potentialHunters);

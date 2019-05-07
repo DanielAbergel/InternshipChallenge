@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigInteger;
 
 public class TEST_Input {
 
@@ -29,6 +30,7 @@ public class TEST_Input {
 				numOfBoxs = Integer.parseInt(inputs[1]);
 				numOfHunters = Integer.parseInt(inputs[2]);
 			}
+			System.out.println(CarpetLength + " << " + numOfBoxs + " << " + numOfHunters);
 			c.init(CarpetLength);
 			for(int i = 0 ; i < numOfBoxs ; i++)
 			{
@@ -44,7 +46,7 @@ public class TEST_Input {
 				int x = Integer.parseInt(indexs[1]) -1;
 				c.updateHunter(x, y);
 			}
-			int ans = c.Algorithem() ; 
+			int ans = c.Algorithem(); 
 			System.out.println("Case #"+TestsCounter + ":" + ans );
 			TestsCounter++;
 		}
@@ -53,8 +55,8 @@ public class TEST_Input {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		TEST_Input T = new TEST_Input("C:\\Users\\דניאל\\eclipse-workspace\\InternshipChallenge\\src\\task-1.txt") ;
-		T.runTests();
-	}
+		TEST_Input T = new TEST_Input("task-1.txt") ;
+		
+		}
 
 }

@@ -1,14 +1,20 @@
-
+import java.math.BigInteger;
 
 public class Carpet {
 
 	private MiniCarpet[] Carpets  = new MiniCarpet[4]; 
+	private Cross CrossEvenSoultion;
 	private int length ; 
+	boolean  EverOrOdd = true ; 
+	
+	
 
 	public Carpet(int length  ) {
+		if(length % 2  == 1 ) EverOrOdd = false ;
 		this.length = length ; 
 		for(int i = 0  ; i < 4 ; i++)
 			Carpets[i] = new MiniCarpet(length/2); 
+		CrossEvenSoultion = new Cross(length);
 	}
 	public void init(int length) 
 	{
@@ -30,8 +36,8 @@ public class Carpet {
 		int arrayIndex  = 0 ; 
 
 		if(x  < length/2 && y >= length/2 ) arrayIndex = 1 ; 
-		if(x  >= length/2 && y < length/2 ) arrayIndex = 2 ; 
-		if(x  >= length/2 && y >= length/2 ) arrayIndex = 3 ; 
+		else if(x  >= length/2 && y < length/2 ) arrayIndex = 2 ; 
+		else if(x  >= length/2 && y >= length/2 ) arrayIndex = 3 ; 
 
 		return arrayIndex ;
 	}
@@ -48,6 +54,7 @@ public class Carpet {
 
 	public static void main(String[] args) {
 		
+		System.out.println(Integer.MAX_VALUE+5);
 
 	}
 }
