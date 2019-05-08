@@ -20,3 +20,8 @@ The first line of the input gives the number of test cases.Each test case:
 
 ## Output
 For each test case, output one line containing “Case #C: A”, where Cis the test case number (starting from 1) and Ais the maximum number of additional treasure hunters that can be seated while ensuring the magic carpet is stable. If it is not possible to balance the magic carpet, Ashould be set to -1.
+
+## Run : 
+- open TEST_INPUT and run the main , This will print  task-1 and task-2 OUTPUT .
+- for more inforemtion see doc folder files.
+- works with Eclipse IDE 
