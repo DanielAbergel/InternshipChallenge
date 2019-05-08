@@ -23,5 +23,5 @@ For each test case, output one line containing “Case #C: A”, where Cis the t
 
 ## Run : 
 - open TEST_INPUT and run the main , This will print  task-1 and task-2 OUTPUT .
-- for more inforemtion see doc folder files.
+- for more inforemtion see doc folder files.(Carpet.html ,MiniCarpet.html , TEST_INPUT , Cross)
 - works with Eclipse IDE 
