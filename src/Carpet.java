@@ -11,6 +11,7 @@ public class Carpet {
 	private Cross carpetCross;
 	private int length ; 
 	private boolean  isEven = true ; 
+	public final static long BiggerLongCast= 1L ;
 	public final static int ERROR = -1 ; 
 
 
@@ -66,15 +67,15 @@ public class Carpet {
 	 * 
 	 * @return The maximum hunters that can be added
 	 */
-	public int Algorithem() {
-		int Check0_3 = Carpets[0].ReverseMirroring(Carpets[3]) ;
-		int Check1_2 = Carpets[1].ReverseMirroring(Carpets[2]);
-		int CrossCheck = 0; 
+	public long Algorithem() {
+		long Check0_3 = Carpets[0].ReverseMirroring(Carpets[3]) ;
+		long Check1_2 = Carpets[1].ReverseMirroring(Carpets[2]);
+		long CrossCheck = 0; 
 		if(!isEven) CrossCheck =carpetCross.CrossAlgorithem();
 		if(Check0_3 == ERROR || 
 		   Check0_3 == ERROR || 
 		   CrossCheck == ERROR ) return ERROR ; 
-		return Check0_3 + Check1_2 + CrossCheck ;
+		return BiggerLongCast * (Check0_3 + Check1_2 + CrossCheck) ;
 	}
 
 

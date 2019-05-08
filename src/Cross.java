@@ -1,4 +1,7 @@
-
+/**
+ * This object represents the  carpet cross 
+ * @author DanielAbergel
+ */
 public class Cross {
 
 	private Segment[] Segments ;
@@ -15,6 +18,10 @@ public class Cross {
 		middle = 1 ; 
 	}
 
+	/**
+	 * This function Initializes all MiniCarpet parameters
+	 * @param length represents the the Cross length. 
+	 */
 	public void init(int length) 
 	{
 		this.length = length ;
@@ -25,21 +32,34 @@ public class Cross {
 
 	}	
 
-	public void addHunter(int x , int y) 
+	/**
+	 * adding Hunter to to one of the Segments depends on the index 
+	 * @param row represents the row index
+	 * @param col represents the col index
+	 */
+	public void addHunter(int row , int col) 
 	{
-		if(x == length/2 && y == length/2) {middle--;return;}
-		int index = findIndex(x,y);
+		if(row == length/2 && col == length/2) {middle--;return;}
+		int index = findIndex(row,col);
 		Segments[index].hunterCounter++ ; 
 	}
-
-	public void addBox(int x , int y) 
+	/**
+	 *  adding Box to to one of the Segments depends on the index 
+	 * @param row represents the row index
+	 * @param col represents the col index
+	 */
+	public void addBox(int row , int col) 
 	{
-		if(x == length/2 && y == length/2) {middle--;return;}
-		int index = findIndex(x,y);
+		if(row == length/2 && col == length/2) {middle--;return;}
+		int index = findIndex(row,col);
 		Segments[index].boxCounter++ ; 
 		Segments[index].potentialHunters--;
 	}
 
+	/**
+	 * 
+	 * @return The maximum hunters that can be added on the cross , if there is no option to do so returns -1(ERROR)
+	 */
 	public int CrossAlgorithem()
 	{
 		int OddSum = 0  , EvenSum = 0 ;
@@ -67,7 +87,11 @@ public class Cross {
 		return index ; 
 	}
 
-
+	/**
+	 * This object represents a quarter of the carpet cross 
+	 * @author DanielAbergel
+	 *
+	 */
 	private class Segment{
 
 		int hunterCounter ; 

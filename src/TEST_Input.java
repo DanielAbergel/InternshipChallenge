@@ -46,41 +46,24 @@ public class TEST_Input {
 				int x = Integer.parseInt(indexs[1]) -1;
 				c.updateHunter(x, y);
 			}
-			int ans = c.Algorithem(); 
+			long ans = c.Algorithem(); 
 			System.out.println("Case #"+TestsCounter + ":" + ans );
 			TestsCounter++;
 		}
-			
-			
+		
+
 	}
 	
+	public void updatePath(String path) throws FileNotFoundException{
+		br =  new BufferedReader(new FileReader(path));
+	}
+
 	public static void main(String[] args) throws IOException {
-		TEST_Input T = new TEST_Input("task-2.txt") ;	T.runTests();
-//		Carpet c = new Carpet(3);
-//		c.updateBox(0, 0);
-//		c.updateBox(0, 1);
-//
-//		c.updateBox(0, 2);
-//
-//	//	c.updateBox(1, 0);
-//
-//		c.updateBox(1, 1);
-//
-//		c.updateBox(2, 1);
-//
-//		c.updateBox(2, 0);
-//
-//		c.updateBox(2, 2);
-//
-//		
-//
-//		
-//		System.out.println(c.Algorithem());
-		}
-	/**
-	 *   , ,
-	 *  H,H,H
-	 *   ,B,
-	 * 
-	 */
+	TEST_Input TEST = new TEST_Input("task-1.txt");
+	TEST.runTests();
+	System.out.println("\ntask-2\n");
+	TEST.updatePath("task-2.txt");
+	TEST.runTests();
+	
+	}
 }
